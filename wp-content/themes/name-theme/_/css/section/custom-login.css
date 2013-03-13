@@ -1,0 +1,26 @@
+/**
+ * PRINT
+ * Default style behavior for login page
+ * ----------------------------------------------------------------
+ * Author      : Connect Duo
+ * Contact     : ti[at]cntd.com.br/ +55 11 98475-9151
+ * ----------------------------------------------------------------
+ */
+ 
+/* @font-face
+---------------------------------------- */ 
+html { background : url(/_/img/common/bg-full.gif) repeat; }
+form { -webkit-box-shadow: 0; -khtml-box-shadow:: 0; -moz-box-shadow: 0; box-shadow: 0; }
+.login #nav a,
+.login #nav a, .login #backtoblog a { color : #ff6600!important; font-size : 12px; }
+.login #nav a:hover { text-decoration : none; }
+body { background: url(/_/img/common/bg-header.gif) repeat-x top; }
+
+
+#login { padding-top : 51px; position : relative; }
+#login h1 a { background : url(/_/img/common/logo-nuova.png) no-repeat center top; display : block; height : 25px; }
+.message,
+#login_error { position : absolute; top : 402px; left : 0; width : 285px;}
+
+input.button-primary:active, button.button-primary:active, a.button-primary:active, input.button-primary, button.button-primary, a.button-primary { border-color : #ff6600!important; background : #ff6600!important; }
+input.button-primary:hover, button.button-primary:hover, a.button-primary:hover, a.button-primary:focus, a.button-primary:active { } 

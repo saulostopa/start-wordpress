@@ -1,0 +1,56 @@
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+
+# protect the htaccess file
+<Files ~ "^\.(htaccess)$">
+deny from all
+</Files>
+
+
+# protect wpconfig.php
+<files wp-config.php>
+order allow,deny
+deny from all
+</files>
+<FilesMatch ^wp-config.php$>
+Deny from all
+</FilesMatch>
+
+
+# disable/prevent directory browsing
+Options All -Indexes
+
+# redirect
+Redirect /wp-admin/install.php /404.php
+#Redirect /wp-includes /404.php
+#Redirect /wp-content /404.php
+#Redirect /wp-admin/index.php /404.php
+Redirect /.htaccess /404.php
+Redirect /cliente /clientes
+
+# disable the server signature
+ServerSignature Off
+
+
+# Compress static data
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css application/x-javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4.0[678] no-gzip
+BrowserMatch bMSIE !no-gzip !gzip-only-text/html
+
+
+# Protect WordPress Blog From Script Injections
+Options +FollowSymLinks
+RewriteEngine On
+RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+RewriteRule ^(.*)$ index.php [F,L]

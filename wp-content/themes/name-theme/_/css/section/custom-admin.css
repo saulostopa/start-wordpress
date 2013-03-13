@@ -1,0 +1,27 @@
+/**
+ * PRINT
+ * Default style behavior for login page
+ * ----------------------------------------------------------------
+ * Author      : Connect Duo
+ * Contact     : ti[at]cntd.com.br/ +55 11 98475-9151
+ * ----------------------------------------------------------------
+ */
+
+#wpwrap { background-image: url(/_/img/common/bg-full.gif) }
+#post-body { background: none; }
+
+#header-logo { background-image: url(/_/img/common/ico-nuova.png) !important; }
+#poststuff .acf_postbox .field > label { display: block; color: #F60; font-size: 12px; font-weight: bold; padding: 0 0 8px; text-shadow: 0 1px 0 white; }
+strong .post-com-count span{ background-color:#ff6600; }
+input.button-primary,button.button-primary,a.button-primary{ border-color:#bc5829; background:#ff6600;}
+input.button-primary:active,button.button-primary:active,a.button-primary:active{ background:#ff6600; }
+.tablenav .next,.tablenav .prev{ border-color:transparent; color:#ff6600; }
+/*a,#adminmenu a,#poststuff #edButtonPreview,#poststuff #edButtonHTML,#the-comment-list p.comment-author strong a,#media-upload a.del-link,#media-items a.delete,.plugins a.delete,.ui-tabs-nav a{ color:#ff6600; }*/
+.login #nav a,.login #backtoblog a{ color:#ff6600!important; }
+.inline-editor .categories .catshow,.inline-editor .categories .cathide{ color:#ff6600; }
+.submitbox .submitcancel{ color:#ff6600; border-bottom-color:#ff6600; }
+.submitbox .submitcancel:hover{ background:#ff6600; }
+input.button-primary:hover,button.button-primary:hover,a.button-primary:hover,a.button-primary:focus,a.button-primary:active{ border-color:#5d2714; }
+#update-menu-item:hover,#update-menu-item:active,#update-menu-item:focus{ border-color:#5d2714!important; }
+.button-primary-disabled,.button-primary[disabled],.button-primary:disabled{ background-color:#bc5829!important; }
+#adminmenu .wp-submenu a:hover { background-color: #faefea!important; }
