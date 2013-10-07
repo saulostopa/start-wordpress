@@ -50,7 +50,7 @@ var def             = {
     project         : {
         name        : 'project',
         version     : '1.0.0',
-        sitePath    : '/',
+        sitePath    : '/wp-content/themes/name-theme/_/',
         path        : {
             js      : 'js',
             css     : 'css',
@@ -85,16 +85,9 @@ var libraries       = {
     jQuery          : {
         init        : true,
         before      : false,
-        url         : def.project.path.js + 'libs/jquery-1.9.0.min?v=' + def.project.version
+        url         : def.project.path.js + 'libs/jquery-1.8.3.min.js?v=' + def.project.version
     },
-    
-    //Chrome frame
-    chromeFrame     : {
-        init        : ie = /*@cc_on @_jscript_version+@*/0 == 5.6 ? true : false,
-        before      : false,
-        url         : 'http://ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js'
-    },
-    
+
     //Google Analytics
     gAnalytics      : {
         init        : false,
@@ -102,12 +95,10 @@ var libraries       = {
         url         : 'https:' == document.location.protocol ? 'https://ssl.google-analytics.com/ga.js' : 'http://www.google-analytics.com/ga.js',
         code        : 'UA-2039129-7', // code analytcs
         domain      : '.site.com.br'
-    }    
-    
+    }
+
 };
 
 
 _loader.init();
-
-
 //]]>

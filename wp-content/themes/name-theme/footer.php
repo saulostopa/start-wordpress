@@ -1,3 +1,4 @@
+        <hr />
 
         <footer>
             <p class="fl">&copy; <?php  echo date("Y"); echo " "; bloginfo('name'); ?></p>

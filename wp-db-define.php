@@ -1,6 +1,6 @@
 <?php
 $serverName     = $_SERVER['SERVER_NAME'];
-$dev            = 'dev.codigo-redmine.nuova2.com';
+$dev            = 'dev.fatto-criativo.com.br';
 $qa             = 'www.site.nuova2.com';
 $homolog        = 'site.nuovacomunicacao.com';
 $prod           = 'www.site.com.br';
@@ -8,7 +8,7 @@ $prod           = 'www.site.com.br';
 switch ($serverName) {
     case $dev       :
         define('DB_HOST',       'localhost');
-        define('DB_NAME',       'wordpress');
+        define('DB_NAME',       'fatto_criativo');
         define('DB_USER',       'root');
         define('DB_PASSWORD',   'admin');
         break;

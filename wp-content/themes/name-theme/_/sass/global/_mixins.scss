@@ -1,0 +1,44 @@
+/* ----------------------------------------------------------
+sass mixins
+---------------------------------------------------------- */
+
+// Clearfix -- @include clearfix();
+// ==========================================================================
+@mixin clearfix() {
+  zoom:1;
+  &:before,
+  &:after {
+      content:"";
+      display:table;
+  }
+  &:after {
+      clear:both;
+  }
+}
+
+
+// set the vertical baseline height -- @include baseline-font-size(VALUE);
+// ==========================================================================
+@mixin baseline-font-size($size) {
+  $context: 10;
+  font-size: #{($size / $context)}em;
+  line-height: #{($base-line / $size)}em;
+}
+
+
+// CSS3 Border Radius -- @include border-radius(VALUE);
+// ==========================================================================
+@mixin border-radius($radius: 1px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+// Opacity -- @include opacity(VALUE);
+// ==========================================================================
+@mixin opacity($opacity : .5) {
+  -webkit-opacity : $opacity;
+     -moz-opacity : $opacity;
+          opacity : $opacity;
+}

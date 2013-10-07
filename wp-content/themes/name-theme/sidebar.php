@@ -1,3 +1,5 @@
+        <hr />
+
         <aside>
             sidebar
         </aside>

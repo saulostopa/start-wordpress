@@ -21,7 +21,6 @@ var _core              = {
     after   : function() {
         $(document).ready(function() {
             _internal.init();
-            chromeFrame.init();
             defaultValue.init();
             // google.analytics.init();
         });
@@ -52,23 +51,6 @@ var _internal          = {
 };
 
 
-//Chrome frame
-var chromeFrame        = {
-
-    init    : function() {
-        if (this.check())  this.core();
-    },
-
-    check   : function() {
-        return ie = /*@cc_on @_jscript_version+@*/0 == 5.6 ? true : false;
-    },
-
-    core    : function() {
-        CFInstall.check({mode:'overlay'});
-    }
-};
-
-
 /* Defaul value */
 var defaultValue       = {
 
@@ -81,7 +63,7 @@ var defaultValue       = {
     },
 
     core    : function() {
-    
+
         if(!Modernizr.input.placeholder){
             $('[placeholder]').focus(function() {
                 var input = $(this);

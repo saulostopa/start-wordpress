@@ -399,8 +399,8 @@ endif;
     	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
     }
     add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
-    
-    
+
+
     //Adiciona contagem no painel agora na area do admin
     add_action('right_now_content_table_end', 'post_type_totals_rightnow');
     function post_type_totals_rightnow() {
@@ -415,7 +415,7 @@ endif;
         }
     }
 
-    
+
     // Order menu admin
     function custom_menu_order($menu_ord) {
         if (!$menu_ord) return true;
@@ -456,7 +456,7 @@ endif;
             'labels' => $labels,
             'public' => true,
             'public_queryable' => true,
-            'show_ui' => true,          
+            'show_ui' => true,
             'query_var' => true,
             'menu_icon' => get_stylesheet_directory_uri() . '/_/img/common/ico-port.png',
             'rewrite' => true,
@@ -465,22 +465,22 @@ endif;
             'hierarchical' => false,
             'menu_position' => null,
             'supports' => array('title','editor','thumbnail','comments', 'excerpt', 'custom-fields', 'revisions', 'trackbacks')
-        );        
+        );
 
         register_post_type( 'portfolios' , $args );
-        flush_rewrite_rules();        
+        flush_rewrite_rules();
     }
     // Register taxonomy
-    register_taxonomy("portfolio", "portfolios", 
-    array(            
-        "label" => "Categorias", 
-        "singular_label" => "Categoria", 
+    register_taxonomy("portfolio", "portfolios",
+    array(
+        "label" => "Categorias",
+        "singular_label" => "Categoria",
         "rewrite" => true,
         "hierarchical" => true
-    ));    
+    ));
     // end
-    
-    
+
+
     //Custom Post Types **** CLIENTES ****
     add_action('init', 'clientes_register');
     function clientes_register(){
@@ -503,7 +503,7 @@ endif;
             'labels' => $labels,
             'public' => true,
             'public_queryable' => true,
-            'show_ui' => true,          
+            'show_ui' => true,
             'query_var' => true,
             'menu_icon' => get_stylesheet_directory_uri() . '/_/img/common/ico-clients.png',
             'rewrite' => true,
@@ -512,23 +512,23 @@ endif;
             'hierarchical' => false,
             'menu_position' => null,
             'supports' => array('title','editor','thumbnail','comments', 'excerpt', 'custom-fields', 'revisions', 'trackbacks')
-        );        
+        );
 
         register_post_type( 'cliente' , $args );
-        flush_rewrite_rules();        
+        flush_rewrite_rules();
     }
-    
+
     // Register taxonomy
-    register_taxonomy("cliente", "cliente", 
-    array(            
-        "label" => "Categorias", 
-        "singular_label" => "Categoria", 
+    register_taxonomy("cliente", "cliente",
+    array(
+        "label" => "Categorias",
+        "singular_label" => "Categoria",
         "rewrite" => true,
         "hierarchical" => true
-    ));    
-    // end    
+    ));
+    // end
 
-    
+
     // remove junk from head
     remove_action('wp_head', 'rsd_link');
     remove_action('wp_head', 'wp_generator');
@@ -542,14 +542,14 @@ endif;
     remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
     remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
     // admin_bar
-    
-    
+
+
     // Disable the Admin Bar.
     add_filter( 'show_admin_bar', '__return_false' );
     remove_action( 'personal_options', '_admin_bar_preferences' );
-    // end  
+    // end
 
-    
+
     //Remove Class Menu
     add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1);
     add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1);
@@ -565,65 +565,65 @@ endif;
             $selavaend= '';
         }
     return $selavaend;
-    } 
+    }
     //end
-    
+
     // function wp_list_categories_remove_title_attributes($output) {
         // $output = preg_replace('` title="(.+)"`', 'title="Ver Itens"', $output);
         // return $output;
     // }
-    // add_filter('wp_list_categories', 'wp_list_categories_remove_title_attributes');    
+    // add_filter('wp_list_categories', 'wp_list_categories_remove_title_attributes');
 
-	
+
     //Modifica o link para a logo na página de login do Wordpress
     function custom_loginpage_logo_link($url) {
     	return get_bloginfo('wpurl');
     }
     add_filter("login_headerurl","custom_loginpage_logo_link");
-    
-    
+
+
     //Modifica o titulo da logo na pagina de login do Wordpress
     function custom_loginpage_logo_title($message) {
     	return get_bloginfo('name');
     }
     add_filter("login_headertitle","custom_loginpage_logo_title");
-    
-    
+
+
     //Remove wp logo do footer admin
     function remove_footer_admin () {
     $ano  = date('Y');
     echo '&copy; Nuova | inteligência + comunicação + tecnologia '. $ano .' - Todos direitos reservados';
     }
     add_filter('admin_footer_text', 'remove_footer_admin');
-    
-    
+
+
     //Troca o tema padrao do admin
     function my_admin_head() {
         echo '<link rel="stylesheet" type="text/css" href="/_/css/section/custom-admin.css">';
         if (!current_user_can( 'edit_themes' )) {
             echo '<link rel="stylesheet" type="text/css" href="/_/css/section/custom-user.css">';
-        }        
+        }
     }
     add_action('admin_head', 'my_admin_head');
-    
-    
+
+
     //Alteracao do email padrao do wordpress
     add_filter ("wp_mail_from", "nuova_mail_from");
     add_filter ("wp_mail_from_name", "nuova_mail_from_name");
-    
+
     function nuova_mail_from() {
         return "contato@nuova.com.br";
     }
     function nuova_mail_from_name() {
         return "Site nuova!";
     }
-    
-    
+
+
     //Total de items do portfolio - para poder fazer a paginacao na single-portfolios.php
     $totalDePortfolio = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'portfolios'");
     if (0 < $numposts) $totalDePortfolio = number_format($totalDePortfolio);
-    
-    
+
+
     //Coluna customizada na pagina de posts - CASE
     add_filter('manage_edit-portfolios_columns', 'add_columns');
     function add_columns($columns) {
@@ -633,14 +633,14 @@ endif;
         unset($columns['comments']);
         return $columns;
     }
-    
+
     //Remove a coluna de comentarios dos posts -  Clientes
     add_filter('manage_edit-cliente_columns', 'remove_columns');
     function remove_columns($columns) {
         unset($columns['comments']);
         return $columns;
     }
-    
+
     //Adiciona os valores nos novos campos
     add_action('manage_posts_custom_column',  'case_show_columns');
     function case_show_columns($name) {
@@ -650,7 +650,7 @@ endif;
                 $case = get_post_meta($post->ID, 'port_case', true);
                 echo ($case) ? '<input type="checkbox" class="case-port" checked data-id="'. $post->ID .'" />' : '<input type="checkbox" class="case-port" data-id="'. $post->ID .'" />';
                 break;
-                
+
             case 'destaque' :
                 $destaque = get_post_meta($post->ID, 'port_dest', true);
                 echo ($destaque) ? '<input type="checkbox" class="dest-port" checked data-id="'. $post->ID .'" />' : '<input type="checkbox" class="dest-port" data-id="'. $post->ID .'" />';
@@ -658,16 +658,16 @@ endif;
             case 'categorias' :
                 $taxonomy = 'portfolio';
                 $termos   = get_the_terms($post->ID, $taxonomy);
-                
+
                 if (!empty($termos)) {
                     foreach ( $termos as $termo )
                         $post_termos[] = $termo->name;
                     echo join(', ', $post_termos);
                 }
-                else echo '';            
+                else echo '';
         }
     }
-    
+
     //Registra script na pagina de admin
     function nuova_admin_js($hook) {
     	if ($hook == 'post.php' || $hook == 'post-new.php') {
@@ -676,19 +676,19 @@ endif;
     	}
     }
     add_action('admin_enqueue_scripts','nuova_admin_js',10,1);
-    
-    //Adiciona o jquery de ajax do destaque do portfolio  
+
+    //Adiciona o jquery de ajax do destaque do portfolio
     function ajax_destaque_portfolio($hook) {
         global $post;
         if ($hook == 'edit.php') {
-            if ('portfolios' === $post->post_type) {     
+            if ('portfolios' === $post->post_type) {
                 wp_enqueue_script('ajax_portfolio', get_bloginfo('wpurl').'/_/js/common/ajax_portfolio.js');
             }
         }
     }
     add_action('admin_enqueue_scripts', 'ajax_destaque_portfolio', 10, 1);
-    
-    
+
+
     //Funcao para fazer o update do ajax no banco de dados
     function atualiza_destaque_portfolio() {
             $id    = $_POST['id'];
@@ -697,18 +697,18 @@ endif;
     }
     add_action('wp_ajax_atualiza_destaque_portfolio', 'atualiza_destaque_portfolio');
     add_action('wp_ajax_nopriv_atualiza_destaque_portfolio', 'atualiza_destaque_portfolio');
-    
+
     //Funcao para retornar o total de destaques selecionados
     function total_destaque() {
         global $wpdb;
-        
+
         $totalDestaque = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->postmeta WHERE meta_key = 'port_dest' AND meta_value = 1");
         if (0 < $numposts) $totalDestaque = number_format($totalDestaque);
            die($totalDestaque);
     }
     add_action('wp_ajax_total_destaque', 'total_destaque');
     add_action('wp_ajax_nopriv_total_destaque', 'total_destaque');
-    
+
     //Funcao para fazer o update do ajax no banco de dados
     function atualiza_case_portfolio() {
             $id    = $_POST['id'];
@@ -717,8 +717,8 @@ endif;
     }
     add_action('wp_ajax_atualiza_case_portfolio', 'atualiza_case_portfolio');
     add_action('wp_ajax_nopriv_atualiza_case_portfolio', 'atualiza_case_portfolio');
-    
-    
+
+
     // Remove pages from search
     function mySearchPostsFilter($query){
         if ($query->is_search){
@@ -736,45 +736,45 @@ endif;
     }
     add_filter('gettext', 'menu_item_text');
     add_filter('ngettext', 'menu_item_text');
-    
-    // Inserir imagem no editor do portfolio 
+
+    // Inserir imagem no editor do portfolio
     add_filter( 'get_media_item_args', 'force_send' );
     function force_send($args){
     	$args['send'] = true;
     	return $args;
     }
-    
+
     //Customiza o typo de tiny_mce h1/h2/h3...
     add_filter('tiny_mce_before_init', 'change_mce_dropdown' );
     function change_mce_dropdown( $initArray ) {
         $initArray['theme_advanced_blockformats'] = 'p,h3,strong';
         return $initArray;
     }
-    
+
     /* post thumbnails */
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 150, 150, true );
     add_image_size( 'thumb-peq', 85, 100, true );
     add_image_size( 'thumb-gr', 373, 342, true );
-    
+
     // Custom url search
     function search_url_rewrite_rule() {
         if ( is_search() && !empty($_GET['s'])) {
             wp_redirect(home_url("/search/") . urlencode(get_query_var('s')));
             exit();
-        }	
+        }
     }
     add_action('template_redirect', 'search_url_rewrite_rule');
-    
-    
+
+
     function custom_loginpage_head() {
     ?>
         <link rel="stylesheet" href="<?php echo site_url(); ?>/_/css/section/custom-login.css" type="text/css" media="screen" />
     <?php
     }
     add_action("login_head","custom_loginpage_head");
-    
-    
+
+
     //Adiciona a pagina com os emails enviados pela pagina de contato.
     add_action('admin_menu', 'mostra_contatos');
     //Make our function to call the WordPress function to add to the correct menu.
@@ -788,11 +788,11 @@ endif;
         	<div id="icon-options-general" class="icon32"></div>
         	<h2>Emails recebidos</h2>
         	<p>Aqui você encontra a lista de email recebidos pela página de contato</p>
-            
+
             <h3>Emails</h3>
             <ul>
             <style > .linha-contato { background: #f5f5f5; border: #DFDFDF 1px solid; padding: 12px; position: relative; margin-bottom: 20px; } .linha-contato p { max-width: 70%; } .linha-contato strong { color: #ff6600; } .linha-contato em { background: #ff6600; border: solid 1px #e05a00; color: #fff; font-size: 12px; left: -5px; padding: 1px 6px; position: absolute; top: -8px; -webkit-border-radius: 20px; -moz-border-radius: 2px; border-radius: 20px; } </style>
-            <?php 
+            <?php
                 global $wpdb;
                 $emails = $wpdb->get_results("SELECT * FROM nva_contato");
                 $i = 1;
@@ -805,43 +805,43 @@ endif;
         </div>
     <?php
     }
-    
-    
+
+
     //Redireciona os posts portfolio para a reordenacao
     function redirectParaReordenar($post_id) {
         $post = get_post($post_id);
-        
+
         if($post->post_type == 'portfolios' && $_POST['original_publish']){
             wp_redirect('edit.php?post_type=portfolios&page=order-post-types-portfolios&action=sucesso'); exit;
         }
     }
     add_action('save_post', 'redirectParaReordenar');
-    
-    
+
+
     // add scripts and styles for custom page templates
     add_action('wp_print_styles', 'nva_scripts');
     function nva_scripts()
 	{
         $load_in_footer = false;
         $template       = get_bloginfo('template_directory');
-		
+
 		// default Scripts
         wp_enqueue_script('modernizr',      $template.'/_/js/libs/modernizr-2.6.2.min.js',$load_in_footer);
         wp_enqueue_script('loader',         $template.'/_/js/common/loader.js',$load_in_footer);
-        
+
         // default Styles
-        wp_enqueue_style('screen',          $template.'/_/css/common/screen.css', array(),  $load_in_footer, 'screen, projection, print');
+        wp_enqueue_style('screen',          $template.'/_/css/screen.css', array(),  $load_in_footer, 'screen, projection, print');
         if(isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)){
-        wp_enqueue_style('specificIE',      $template.'/_/css/common/ie-specific.css', array('screen'),  $load_in_footer, 'screen, projection, print');
+        wp_enqueue_style('specificIE',      $template.'/_/css/ie-specific.css', array('screen'),  $load_in_footer, 'screen, projection, print');
         }
-        wp_enqueue_style('print',           $template.'/_/css/common/print.css', array('screen'),  $load_in_footer, 'print');
-        
+        wp_enqueue_style('print',           $template.'/_/css/print.css', array('screen'),  $load_in_footer, 'print');
+
         // home page
         // if(is_page_template('page-home.php') || is_page('home'))
 		// {
             // wp_enqueue_script('home',   .$template.'/_/js/section/home.js',array('loader'), $load_in_footer);
             // wp_enqueue_style('home',    .$template.'/_/css/section/home.css', array('screen'),  $load_in_footer, 'screen');
         // }
-    }      
-    
+    }
+
 ?>

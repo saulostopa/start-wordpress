@@ -29,12 +29,12 @@ Deny from all
 Options All -Indexes
 
 # redirect
-Redirect /wp-admin/install.php /404.php
+#Redirect /wp-admin/install.php /404.php
 #Redirect /wp-includes /404.php
 #Redirect /wp-content /404.php
 #Redirect /wp-admin/index.php /404.php
-Redirect /.htaccess /404.php
-Redirect /cliente /clientes
+#Redirect /.htaccess /404.php
+#Redirect /cliente /clientes
 
 # disable the server signature
 ServerSignature Off

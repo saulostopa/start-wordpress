@@ -24,7 +24,7 @@
     <meta http-equiv="X-UA-Compatible"      content="IE=edge,chrome=1">
 
     <!-- meta : basics -->
-    <meta name="author"                     content="Connect Duo - Software & Development - ti@cntd.com.br">
+    <meta name="author"                     content="">
     <meta name="Copyright"                  content="Copyright <?php  bloginfo('name'); echo " ".date("Y"); ?>. Todos direitos reservados.">
     <meta name="description"                content="<?php bloginfo('description'); ?>">
     <meta name="keywords"                   content="">
@@ -43,22 +43,18 @@
     <meta http-equiv="Cache-Control"        content="no-cache, no-store">
     <meta http-equiv="Pragma"               content="no-cache, no-store">
     <meta http-equiv="expires"              content="Mon, 06 Jan 1990 00:00:01 GMT">
-    
-	<!-- Metadata -->
-	<meta name="DC.title" content="<?php bloginfo('name'); ?>">
-	<meta name="DC.subject" content="<?php bloginfo('description'); ?>">
-	<meta name="DC.creator" content="Connect Duo - Software & Development - ti@cntd.com.br">    
-    
+
+    <!-- Metadata -->
+    <meta name="DC.title"                   content="<?php bloginfo('name'); ?>">
+    <meta name="DC.subject"                 content="<?php bloginfo('description'); ?>">
+    <meta name="DC.creator"                 content="">
+
     <!-- Turn off Skype Toolbar -->
     <meta name="skype_toolbar"              content="skype_toolbar_parser_compatible" />
-    
+
     <!-- favicon and icon apple -->
-    <link rel="shortcut icon"                           href="<?php bloginfo('template_directory'); ?>/_/img/common/favicon.ico?v=1.0.0" type="image/ico">
-    <link rel="apple-touch-icon-precomposed"            href="<?php bloginfo('template_directory'); ?>/_/img/common/apple-touch-icon-144x144-precomposed.png" sizes="144x144">
-    <link rel="apple-touch-icon-precomposed"            href="<?php bloginfo('template_directory'); ?>/_/img/common/apple-touch-icon-114x114-precomposed.png" sizes="114x114">
-    <link rel="apple-touch-icon-precomposed"            href="<?php bloginfo('template_directory'); ?>/_/img/common/apple-touch-icon-72x72-precomposed.png" sizes="72x72">
-    <link rel="apple-touch-icon-precomposed"            href="<?php bloginfo('template_directory'); ?>/_/img/common/apple-touch-icon-57x57-precomposed.png">
-    <link rel="shortcut icon"                           href="<?php bloginfo('template_directory'); ?>/_/img/common/apple-touch-icon.png">    
+    <link rel="shortcut icon"               href="<?php bloginfo('template_directory'); ?>/_/img/common/favicon.ico?v=1.0.0" type="image/ico">
+    <link rel="shortcut icon"               href="<?php bloginfo('template_directory'); ?>/_/img/common/apple-touch-icon.png">
 
     <!-- meta : viewport -->
     <meta name="viewport"                   content="width=device-width,initial-scale=1">
@@ -69,13 +65,10 @@
     <?php wp_head(); ?>
 
 </head>
-
 <body>
-
     <div id="wrapper">
-
         <header class="clearfix">
-            <a class="logo" href="/" title="<?php bloginfo('name');?>"><img src="/_/img/common/logo-project.png" alt="<?php bloginfo('name');?>" title="<?php bloginfo('name');?>" width="" height="" /></a>
+            <a class="logo" href="/" title="<?php bloginfo('name');?>"><img src="<?php bloginfo('template_directory'); ?>/_/img/common/logo-project.png" alt="<?php bloginfo('name');?>" title="<?php bloginfo('name');?>" width="" height="" /></a>
 
             <hr />
 
@@ -83,3 +76,5 @@
                 <?php wp_nav_menu( array( 'container' => '', 'theme_location' => 'primary', 'items_wrap' => '<ol>%3$s</ol>' ) ); ?>
             </nav>
         </header>
+
+        <hr />

@@ -1,5 +1,5 @@
 <?php
-/** 
+/**
  * As configurações básicas do WordPress.
  *
  * Esse arquivo contém as seguintes configurações: configurações de MySQL, Prefixo de Tabelas,
@@ -16,8 +16,8 @@
 
 
 define('WP_DEFAULT_THEME', 'name-theme');
- 
-	
+
+
 /** Configura as variáveis do WordPress e arquivos inclusos. */
 require_once(ABSPATH . 'wp-db-define.php');
 
@@ -31,14 +31,14 @@ require_once(ABSPATH . 'wp-db-define.php');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+define('AUTH_KEY',         '8fnx-.xNl)P*e[!yye:3M uy;X9Jk0BUvxlT(R!#a)>*8CGfh5pTc_B5NuPoM.;n');
+define('SECURE_AUTH_KEY',  '|)DCC+K--OLMu+UH+m,Y*~L05x4wbV+|T^-JD>rLRWOkcr)>RO;r{+u@Q-*U.A^=');
+define('LOGGED_IN_KEY',    ')IQp!/)w|V}>UPp1*[f `W1Qqy0#e9>-0+kGpar( khBSjU!4rcP||dXhEO_?T%{');
+define('NONCE_KEY',        '/x-9P:uJ.~e5EOQ0xdK4l>am1@!s8@-s5-@wW6!+o[Nu!{<G++}Z i6;s71|V+C+');
+define('AUTH_SALT',        'oR||A&4i,)qL7M!NV!;J0_)01p9/$5OfEx>b}+/R?+|Sqd/{nb8=x/+GE%Eum)@3');
+define('SECURE_AUTH_SALT', '}r}Ha5)S8CfPWTR^i~5qVdBKb1acS7!D_mjjrW^R~!v3K%BH.q%z^SV|L)pHa{jD');
+define('LOGGED_IN_SALT',   '{7!,M%:1^-mex+HWTm#.SLoQ!?*R$*{g6l1F@b|`+c|CNxK^9oP}|x+X+Z>&vt2I');
+define('NONCE_SALT',       ':[6*B53b(SB,-o]E#(MZ{%]nDnzkKwrWRey`:J%iyh&yQ!7T77H1r?|1w,h*03t+');
 
 /**#@-*/
 
@@ -73,7 +73,7 @@ define('WP_DEBUG', false);
 
 /** Caminho absoluto para o diretório WordPress. */
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
-	
+    define('ABSPATH', dirname(__FILE__) . '/');
+
 /** Configura as variáveis do WordPress e arquivos inclusos. */
 require_once(ABSPATH . 'wp-settings.php');
